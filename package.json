@@ -268,11 +268,11 @@
     ]
   },
   "scripts": {
-    "dev": "vite --host",
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
+    "dev": "node api.js && vite --host",
+    "build": "node api.js && cross-env NODE_OPTIONS=--max-old-space-size=8192 vite build",
     "preview": "vite preview",
-    "build-types": "node scripts/build-types.js",
-    "build-flags": "node scripts/build-flags.js",
+    "build-types": "node api.js && node scripts/build-types.js",
+    "build-flags": "node api.js && node scripts/build-flags.js",
     "check-strict-null-errors": "tsc --noEmit --strictNullChecks | node scripts/count-strict-null-check-errors.js",
     "check-types:src": "tsc --noEmit && tsc-strict",
     "check-types:playwright": "tsc --noEmit --project playwright/tsconfig.json",
